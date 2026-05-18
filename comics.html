@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comics -- Art Dump</title>
+    <link rel="icon" type="image/x-icon" href="../Absolute ICON.png">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: white;
+            color: black;
+        }
+        .head-text {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .main-text {
+            font-size: 18px;
+            font-weight: normal;
+        }
+        .sub-text {
+            font-size: 14px;
+            font-weight: normal;
+        }
+        .redir-text {
+            font-size: 20px;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body style="background-color:magenta;">
+    <div style="background-color: gray; padding: 20px; border-radius: 8px;">
+        <div><h1>Comics!</h1></div>
+        <div class="head-text"><br><br></div>
+        <div id="randomMessage" class="head-text" style="color:white;">There's nothing here yet!</div>
+        <div class="head-text"><br><br></div>
+        
+        <div class="redir-text"><a href="art-dump.html">Main art page</a></div>
+        <div class="redir-text"><a href="../index.html">Return to main site</a></div>
+    </div>
+
+    <script>
+        const messageList = [
+            { text: "There's nothing here yet!", color: "white", italic: false },
+            { text: "Patience, young padawan.", color: "white", italic: false },
+            { text: "... but nobody came.", color: "red", italic: false },
+            { text: "REALLY NOT FEELIN UP TO IT RIGHT NOW. SORRY.", color: "black", italic: true },
+        ];
+
+        function setRandomMessage() {
+            const randomIndex = Math.floor(Math.random() * messageList.length);
+            const selected = messageList[randomIndex];
+            const messageDiv = document.getElementById('randomMessage');
+            
+            messageDiv.innerText = selected.text;
+            messageDiv.style.color = selected.color;
+            
+            if (selected.italic) {
+                messageDiv.style.fontStyle = "italic";
+            } else {
+                messageDiv.style.fontStyle = "normal";
+            }
+        }
+
+        // Run the random selection when the page fully loads
+        window.addEventListener('DOMContentLoaded', setRandomMessage);
+    </script>
+</body>
+</html>
